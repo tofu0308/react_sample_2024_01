@@ -2,6 +2,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { SimpleButton } from './SimpleButton';
 
+test('描画されてすぐはOFFと表示されている', () => {
+  const view = render(<SimpleButton />);
+  expect(view.container).toMatchSnapshot();
+});
+
 test('ボタンをクリックするとON/OFFの表示が切り替わる', async () => {
   const user = userEvent.setup();
   render(<SimpleButton />);
